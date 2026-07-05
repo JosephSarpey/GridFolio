@@ -25,10 +25,12 @@ function initRoutineSlider() {
   ScrollTrigger.create({
     trigger: ".routine",
     start: "top top",
-    end: `+=${window.innerHeight * 5}px`,
+    end: () => `+=${window.innerHeight * 5}px`,
     pin: true,
     pinSpacing: true,
+    anticipatePin: 1,
     scrub: 1,
+    invalidateOnRefresh: true,
     onUpdate: (self) => {
       const progress = self.progress;
       const maxTranslateX = calculateMaxTranslate();
@@ -115,9 +117,11 @@ function initTeamCards() {
   ScrollTrigger.create({
     trigger: stickySection,
     start: "top top",
-    end: `+=${stickyHeight}px`,
+    end: () => `+=${window.innerHeight * 7}px`,
     pin: true,
     pinSpacing: true,
+    anticipatePin: 1,
+    invalidateOnRefresh: true,
     onUpdate: (self) => {
       positionCards(self.progress);
       updateTeamCounter(self.progress);
