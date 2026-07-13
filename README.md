@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="global/site_logo.png" width="120" alt="Rare Devs Studio Logo" />
+<img src="public/global/site_logo.png" width="120" alt="Rare Devs Studio Logo" />
 
 <br />
 <br />
