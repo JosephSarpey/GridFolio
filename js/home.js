@@ -83,8 +83,28 @@ function initStickyWorkHeaderAnimation() {
 }
 
 // process card section - animates cards on scroll
- const cardContainer = document.querySelector(".card-container");
-  const stickyHeader = document.querySelector(".sticky-header h1");
+function initProcessCardAnimation() {
+  const processSection = document.querySelector(".process");
+  if (!processSection) return;
+
+  const cardContainer = processSection.querySelector(".card-container");
+  const stickyHeader = processSection.querySelector(".sticky-header h1");
+  const processCards = Array.from(processSection.querySelectorAll(".card"));
+  const cardOne = processSection.querySelector("#card-1");
+  const cardTwo = processSection.querySelector("#card-2");
+  const cardThree = processSection.querySelector("#card-3");
+
+  if (
+    !cardContainer ||
+    !stickyHeader ||
+    processCards.length < 3 ||
+    !cardOne ||
+    !cardTwo ||
+    !cardThree
+  ) {
+    return;
+  }
+
   let isGapAnimationCompleted = false;
   let isFlipAnimationCompleted = false;
 
@@ -94,15 +114,15 @@ function initStickyWorkHeaderAnimation() {
     const mm = gsap.matchMedia();
 
     mm.add("(max-width: 999px)", () => {
-      document
-        .querySelectorAll(".process .card, .card-container, .sticky-header h1")
-        .forEach((el) => (el.style = ""));
+      processCards.forEach((el) => (el.style = ""));
+      cardContainer.style = "";
+      stickyHeader.style = "";
       return {};
     });
 
     mm.add("(min-width: 1000px)", () => {
       ScrollTrigger.create({
-        trigger: ".process",
+        trigger: processSection,
         start: "top top",
         end: `+=${window.innerHeight * 4}px`,
         scrub: 1,
@@ -164,7 +184,7 @@ function initStickyWorkHeaderAnimation() {
               ease: "power3.out",
             });
 
-            gsap.to(["#card-1", "#card-2", "#card-3"], {
+            gsap.to([cardOne, cardTwo, cardThree], {
               borderRadius: "20px",
               duration: 0.5,
               ease: "power3.out",
@@ -178,19 +198,19 @@ function initStickyWorkHeaderAnimation() {
               ease: "power3.out",
             });
 
-            gsap.to("#card-1", {
+            gsap.to(cardOne, {
               borderRadius: "20px 0 0 20px",
               duration: 0.5,
               ease: "power3.out",
             });
 
-            gsap.to("#card-2", {
+            gsap.to(cardTwo, {
               borderRadius: "0px",
               duration: 0.5,
               ease: "power3.out",
             });
 
-            gsap.to("#card-3", {
+            gsap.to(cardThree, {
               borderRadius: "0 20px 20px 0",
               duration: 0.5,
               ease: "power3.out",
@@ -200,14 +220,14 @@ function initStickyWorkHeaderAnimation() {
           }
 
           if (progress >= 0.7 && !isFlipAnimationCompleted) {
-            gsap.to(".process .card", {
+            gsap.to(processCards, {
               rotationY: 180,
               duration: 0.75,
               ease: "power3.inOut",
               stagger: 0.1,
             });
 
-            gsap.to(["#card-1", "#card-3"], {
+            gsap.to([cardOne, cardThree], {
               y: 30,
               rotationZ: (i) => [-15, 15][i],
               duration: 0.75,
@@ -216,14 +236,14 @@ function initStickyWorkHeaderAnimation() {
 
             isFlipAnimationCompleted = true;
           } else if (progress < 0.7 && isFlipAnimationCompleted) {
-            gsap.to(".process .card", {
+            gsap.to(processCards, {
               rotationY: 0,
               duration: 0.75,
               ease: "power3.inOut",
               stagger: -0.1,
             });
 
-            gsap.to(["#card-1", "#card-3"], {
+            gsap.to([cardOne, cardThree], {
               y: 0,
               rotationZ: 0,
               duration: 0.75,
@@ -247,5 +267,8 @@ function initStickyWorkHeaderAnimation() {
       initAnimations();
     }, 250);
   });
+}
+
+initProcessCardAnimation();
 
 export { initHeroTimer };
