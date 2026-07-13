@@ -1,1 +1,2 @@
 pnpm exec commitlint --edit "$1"
+node scripts/verify-commit-scope.cjs "$1"
