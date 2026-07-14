@@ -497,60 +497,45 @@
     font-size: 3rem;
   }
 
+ 
+
   .process {
-    height: 100svh;
-    padding: 1rem;
-    overflow: hidden;
+    height: max-content;
+    padding: 4rem 2rem;
+    flex-direction: column;
   }
 
-  .process .sticky-header {
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
+  .sticky-header {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    margin-bottom: 4rem;
   }
 
-  .process .sticky-header h1 {
-    font-size: clamp(1.6rem, 5vw, 2.2rem);
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-    padding: 0 1rem;
+  .sticky-header h1 {
+    opacity: 1;
   }
 
   .process .card-container {
-    width: 90%;
-    transform: translateY(60px);
+    width: 100%;
+    flex-direction: column;
+    gap: 2rem;
+    transform: none;
   }
 
   .process .card {
-    max-width: calc(42vh * 5 / 7);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 20px !important;
   }
 
+  .process #card-1,
+  .process #card-2,
+  .process #card-3,
   .process .card-back {
-    padding: 1.2rem;
-  }
-
-  .process .card-back span {
-    top: 1.2rem;
-    left: 1.2rem;
-    font-size: clamp(0.6rem, 2vw, 0.75rem);
-    white-space: nowrap;
-  }
-
-  .process .card-back .card-stage {
-    bottom: 1.2rem;
-    right: 1.2rem;
-    top: auto;
-    left: auto;
-    font-size: clamp(0.55rem, 1.8vw, 0.7rem);
-    white-space: nowrap;
-  }
-
-  .process .card-back p {
-    font-size: clamp(1.2rem, 4.5vw, 2rem);
-    letter-spacing: -1px;
-    white-space: nowrap;
+    transform: none;
   }
 }
 
@@ -763,7 +748,7 @@
   .cta .cta-row .cta-card {
     height: 200px;
     border-radius: 0.5rem;
-    opacity: 1;
+    opacity: 0;
   }
 
   .cta .cta-row .cta-card .cta-card-frame .cta-card-gradient {
