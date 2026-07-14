@@ -526,6 +526,32 @@
   .process .card {
     max-width: calc(42vh * 5 / 7);
   }
+
+  .process .card-back {
+    padding: 1.2rem;
+  }
+
+  .process .card-back span {
+    top: 1.2rem;
+    left: 1.2rem;
+    font-size: clamp(0.6rem, 2vw, 0.75rem);
+    white-space: nowrap;
+  }
+
+  .process .card-back .card-stage {
+    bottom: 1.2rem;
+    right: 1.2rem;
+    top: auto;
+    left: auto;
+    font-size: clamp(0.55rem, 1.8vw, 0.7rem);
+    white-space: nowrap;
+  }
+
+  .process .card-back p {
+    font-size: clamp(1.2rem, 4.5vw, 2rem);
+    letter-spacing: -1px;
+    white-space: nowrap;
+  }
 }
 
 
