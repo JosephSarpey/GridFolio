@@ -2,7 +2,16 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavToggle();
   initNavLinks();
   initNavResize();
+  initFooterYear();
 });
+
+function initFooterYear() {
+  const yearSpans = document.querySelectorAll(".footer-year");
+  const currentYear = new Date().getFullYear();
+  yearSpans.forEach((span) => {
+    span.textContent = currentYear;
+  });
+}
 
 // nav - mobile menu toggle
 function initNavToggle() {

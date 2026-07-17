@@ -1,5 +1,6 @@
 import gsap from "gsap";
 
+// TODO: Replace TRACES_DATA with live backend data from the projects API endpoint
 const TRACES_DATA = [
   {
     name: "Haven",

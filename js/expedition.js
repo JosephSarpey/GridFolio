@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initExpeditionsInteractions();
 });
 
+// TODO: Replace EXPEDITIONS_DATA with live backend data from the services/capabilities API endpoint
 const EXPEDITIONS_DATA = [
   {
     name: "Frontend Development",

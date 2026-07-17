@@ -481,6 +481,8 @@
 
   .about .container .about-map {
     width: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
 
   .team .team-counter {
@@ -497,14 +499,19 @@
   }
 
   .team .cards {
-    top: 67.5%;
+    top: 62%;
   }
 
   .team .cards .card {
-    width: 375px;
-    height: 500px;
-    margin-left: -187.5px;
-    margin-top: -250px;
+    width: 280px;
+    height: 370px;
+    margin-left: -140px;
+    margin-top: -185px;
+  }
+
+  .team .cards .card .card-img {
+    max-height: 280px;
+    overflow: hidden;
   }
 
   .team .team-counter .counter-title h1 {
