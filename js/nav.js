@@ -6,8 +6,17 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function initFooterYear() {
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const now = new Date();
+  const currentMonth = months[now.getMonth()];
+  const currentYear = now.getFullYear();
+
+  const monthSpans = document.querySelectorAll(".footer-month");
   const yearSpans = document.querySelectorAll(".footer-year");
-  const currentYear = new Date().getFullYear();
+
+  monthSpans.forEach((span) => {
+    span.textContent = currentMonth;
+  });
   yearSpans.forEach((span) => {
     span.textContent = currentYear;
   });
